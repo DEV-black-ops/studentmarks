@@ -1,0 +1,18 @@
+2026-08-06 17:37:21,087 -10 - root - INFO - Starting the ML project setup...
+2026-08-06 17:37:21,087 -40 - root - INFO - Starting data ingestion process.
+2026-08-06 17:37:21,087 -19 - root - INFO - Loading data from D:/Project/MLOPS/notebook/StudentsPerformance.csv
+2026-08-06 17:37:21,103 -22 - root - INFO - Data loaded successfully
+2026-08-06 17:37:21,103 -43 - root - INFO - Data read successfully.
+2026-08-06 17:37:21,112 -48 - root - INFO - Raw data saved at artifacts\raw.csv
+2026-08-06 17:37:21,125 -55 - root - INFO - Training data saved at artifacts\train.csv
+2026-08-06 17:37:21,125 -56 - root - INFO - Testing data saved at artifacts\test.csv
+2026-08-06 17:37:21,125 -57 - root - INFO - Data ingestion process completed successfully.
+2026-08-06 17:37:21,184 -75 - root - INFO - Train and test data read successfully.
+2026-08-06 17:37:21,184 -55 - root - INFO - Numerical and categorical pipelines created successfully.
+2026-08-06 17:37:21,184 -56 - root - INFO - Numerical columns: ['writing score', 'reading score']
+2026-08-06 17:37:21,184 -57 - root - INFO - Categorical columns: ['gender', 'race/ethnicity', 'parental level of education', 'lunch', 'test preparation course']
+2026-08-06 17:37:21,184 -91 - root - INFO - Applying preprocessing object on training and testing datasets.
+2026-08-06 17:37:21,267 -37 - root - INFO - Object saved to artifacts\preprocessor.pkl
+2026-08-06 17:37:21,268 -106 - root - INFO - Preprocessor object saved successfully.
+2026-08-06 17:37:21,268 -39 - root - INFO - initating train test split
+2026-08-06 17:37:21,269 -92 - root - INFO - traning all the models

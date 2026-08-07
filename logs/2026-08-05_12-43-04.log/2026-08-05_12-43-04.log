@@ -1,0 +1,14 @@
+2026-08-05 12:43:12,237 -9 - root - INFO - Starting the ML project setup...
+2026-08-05 12:43:12,239 -40 - root - INFO - Starting data ingestion process.
+2026-08-05 12:43:12,240 -17 - root - INFO - Loading data from D:/Project/MLOPS/notebook/StudentsPerformance.csv
+2026-08-05 12:43:12,257 -20 - root - INFO - Data loaded successfully
+2026-08-05 12:43:12,258 -43 - root - INFO - Data read successfully.
+2026-08-05 12:43:12,281 -48 - root - INFO - Raw data saved at artifacts\raw.csv
+2026-08-05 12:43:12,314 -55 - root - INFO - Training data saved at artifacts\train.csv
+2026-08-05 12:43:12,315 -56 - root - INFO - Testing data saved at artifacts\test.csv
+2026-08-05 12:43:12,315 -57 - root - INFO - Data ingestion process completed successfully.
+2026-08-05 12:43:12,425 -75 - root - INFO - Train and test data read successfully.
+2026-08-05 12:43:12,426 -55 - root - INFO - Numerical and categorical pipelines created successfully.
+2026-08-05 12:43:12,427 -56 - root - INFO - Numerical columns: ['writing score', 'reading score']
+2026-08-05 12:43:12,428 -57 - root - INFO - Categorical columns: ['gender', 'race/ethnicity', 'parental level of education', 'lunch', 'test preparation course']
+2026-08-05 12:43:12,428 -23 - root - INFO - An error occurred during the data ingestion process.

@@ -1,0 +1,5 @@
+2026-08-03 13:18:00,164 -8 - root - INFO - Starting the ML project setup...
+2026-08-03 13:18:00,164 -40 - root - INFO - Starting data ingestion process.
+2026-08-03 13:18:00,164 -13 - root - INFO - Loading data from D:\Project\Data Set\home lone\application_train.csv
+2026-08-03 13:18:00,164 -20 - root - INFO - Error loading data: [Errno 13] Permission denied: 'D:\\Project\\Data Set\\home lone\\application_train.csv'
+2026-08-03 13:18:00,164 -16 - root - INFO - An error occurred during the data ingestion process.

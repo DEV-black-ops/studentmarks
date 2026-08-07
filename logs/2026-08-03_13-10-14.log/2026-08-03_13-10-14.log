@@ -1,0 +1,5 @@
+2026-08-03 13:11:28,043 -8 - root - INFO - Starting the ML project setup...
+2026-08-03 13:11:28,043 -40 - root - INFO - Starting data ingestion process.
+2026-08-03 13:11:28,043 -13 - root - INFO - Loading data from D:\Project\Data Set\home lone\application_train.csv
+2026-08-03 13:11:28,047 -20 - root - ERROR - Error loading data: [Errno 13] Permission denied: 'D:\\Project\\Data Set\\home lone\\application_train.csv'
+2026-08-03 13:11:28,047 -16 - root - ERROR - An error occurred: CustomException.__init__() missing 1 required positional argument: 'error_detail'

@@ -1,0 +1,9 @@
+2026-08-05 12:34:34,028 -8 - root - INFO - Starting the ML project setup...
+2026-08-05 12:34:34,028 -40 - root - INFO - Starting data ingestion process.
+2026-08-05 12:34:34,028 -17 - root - INFO - Loading data from D:/Project/MLOPS/notebook/StudentsPerformance.csv
+2026-08-05 12:34:34,050 -20 - root - INFO - Data loaded successfully
+2026-08-05 12:34:34,051 -43 - root - INFO - Data read successfully.
+2026-08-05 12:34:34,066 -48 - root - INFO - Raw data saved at artifacts\raw.csv
+2026-08-05 12:34:34,087 -55 - root - INFO - Training data saved at artifacts\train.csv
+2026-08-05 12:34:34,087 -56 - root - INFO - Testing data saved at artifacts\test.csv
+2026-08-05 12:34:34,087 -57 - root - INFO - Data ingestion process completed successfully.

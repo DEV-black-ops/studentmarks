@@ -1,0 +1,5 @@
+2026-08-03 13:29:31,708 -8 - root - INFO - Starting the ML project setup...
+2026-08-03 13:29:31,710 -40 - root - INFO - Starting data ingestion process.
+2026-08-03 13:29:31,711 -15 - root - INFO - Loading data from D:\Project\Data Set\home lonepplication_train.csv
+2026-08-03 13:29:31,716 -22 - root - INFO - Error loading data: [Errno 22] Invalid argument: 'D:\\Project\\Data Set\\home lone\x07pplication_train.csv'
+2026-08-03 13:29:31,716 -16 - root - INFO - An error occurred during the data ingestion process.
