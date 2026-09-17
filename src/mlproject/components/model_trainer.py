@@ -20,6 +20,8 @@ from dataclasses import dataclass
 import os
 import sys
 from src.mlproject.utils import save_object, evaluate_models
+import mlflow
+from urllib.parse import urlparse
 
 
 
@@ -32,6 +34,13 @@ class ModelTrainer():
     def __init__(self) :
         self.model_trainer_config =ModelTrainerConfig()
 
+
+    def eval_metrics(self,true, predicted):
+        mae = mean_absolute_error(true, predicted)
+        mse = mean_squared_error(true, predicted)
+        rmse = np.sqrt(mean_squared_error(true, predicted))
+        r2_square = r2_score(true, predicted)
+        return mae, rmse, r2_square
 
 
     def initate_model_trainer(self,train_array,test_array):
@@ -102,6 +111,77 @@ class ModelTrainer():
                 list(model_report.values()).index(best_model_score)
             ]
             best_model = models[best_model_name]
+
+            ### ml flow for expriment tracking 
+
+
+
+            model_names = list(params.keys())
+
+            actual_model = ""
+            for model in model_names:
+               if model == best_model_name:
+                   actual_model = actual_model + model
+
+            best_params = params[actual_model]
+
+            # Configure MLflow to use Dagshub if DAGSHUB_REPO is provided (format: owner/repo)
+            dagshub_repo = os.getenv("DAGSHUB_REPO")
+            dagshub_token = os.getenv("DAGSHUB_TOKEN")
+
+            if dagshub_repo:
+                tracking_uri = f"https://dagshub.com/{dagshub_repo}.mlflow"
+                try:
+                    mlflow.set_tracking_uri(tracking_uri)
+                    mlflow.set_registry_uri(tracking_uri)
+                    logging.info(f"MLflow tracking and registry URI set to {tracking_uri}")
+
+                    # If a token is provided, export common MLflow auth env vars so MLflow can authenticate to Dagshub
+                    if dagshub_token:
+                        # Set multiple possible env vars to increase compatibility across MLflow versions
+                        os.environ.setdefault("MLFLOW_TRACKING_TOKEN", dagshub_token)
+                        os.environ.setdefault("MLFLOW_TRACKING_USERNAME", "")
+                        os.environ.setdefault("MLFLOW_TRACKING_PASSWORD", dagshub_token)
+                        logging.info("MLflow Dagshub token set from DAGSHUB_TOKEN environment variable")
+                except Exception as uri_error:
+                    logging.info(f"Failed to set Dagshub tracking URI: {uri_error}")
+            else:
+                logging.info(f"DAGSHUB_REPO not set. Using existing MLflow tracking URI: {mlflow.get_tracking_uri()}")
+
+            tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
+
+            # Start MLflow run and log metrics/params/model
+            with mlflow.start_run():
+
+                predicted_qualities = best_model.predict(X_test)
+
+                (rmse, mae, r2) = self.eval_metrics(Y_test, predicted_qualities)
+
+                # log hyperparameters if available
+                try:
+                    mlflow.log_params(best_params)
+                except Exception:
+                    # best_params may be empty or not serializable
+                    logging.info("Best params not logged (empty or not serializable)")
+
+                mlflow.log_metric("rmse", rmse)
+                mlflow.log_metric("r2", r2)
+                mlflow.log_metric("mae", mae)
+
+                # Model registry may not be available depending on tracking backend and permissions
+                if tracking_url_type_store != "file":
+                    try:
+                        # Attempt to register the model in the remote MLflow registry (MLflow 3.x: use name and registered_model_name)
+                        mlflow.sklearn.log_model(best_model, name="model", registered_model_name=actual_model)
+                        logging.info(f"Model logged and registered as '{actual_model}' in remote registry")
+                    except Exception as registry_error:
+                        logging.info(f"MLflow registry unavailable or permission denied: {registry_error}")
+                        logging.info("Falling back to logging the model without registry registration.")
+                        mlflow.sklearn.log_model(best_model, name="model")
+                else:
+                    mlflow.sklearn.log_model(best_model, name="model")
+
+            ###### ml flow from code end .........
 
             print("This is the best model:")
             print(best_model_name)

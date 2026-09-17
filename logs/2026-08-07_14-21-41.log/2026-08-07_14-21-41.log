@@ -1,0 +1,21 @@
+2026-08-07 14:21:45,677 -10 - root - INFO - Starting the ML project setup...
+2026-08-07 14:21:45,677 -40 - root - INFO - Starting data ingestion process.
+2026-08-07 14:21:45,677 -19 - root - INFO - Loading data from D:/Project/MLOPS/notebook/StudentsPerformance.csv
+2026-08-07 14:21:45,677 -22 - root - INFO - Data loaded successfully
+2026-08-07 14:21:45,677 -43 - root - INFO - Data read successfully.
+2026-08-07 14:21:45,677 -48 - root - INFO - Raw data saved at artifacts\raw.csv
+2026-08-07 14:21:45,697 -55 - root - INFO - Training data saved at artifacts\train.csv
+2026-08-07 14:21:45,697 -56 - root - INFO - Testing data saved at artifacts\test.csv
+2026-08-07 14:21:45,698 -57 - root - INFO - Data ingestion process completed successfully.
+2026-08-07 14:21:45,760 -75 - root - INFO - Train and test data read successfully.
+2026-08-07 14:21:45,760 -55 - root - INFO - Numerical and categorical pipelines created successfully.
+2026-08-07 14:21:45,760 -56 - root - INFO - Numerical columns: ['writing score', 'reading score']
+2026-08-07 14:21:45,760 -57 - root - INFO - Categorical columns: ['gender', 'race/ethnicity', 'parental level of education', 'lunch', 'test preparation course']
+2026-08-07 14:21:45,760 -91 - root - INFO - Applying preprocessing object on training and testing datasets.
+2026-08-07 14:21:45,833 -37 - root - INFO - Object saved to artifacts\preprocessor.pkl
+2026-08-07 14:21:45,833 -106 - root - INFO - Preprocessor object saved successfully.
+2026-08-07 14:21:45,833 -48 - root - INFO - initating train test split
+2026-08-07 14:21:45,833 -101 - root - INFO - traning all the models
+2026-08-07 14:22:27,562 -152 - root - INFO - MLflow registry unavailable or permission denied: API request to endpoint /api/2.0/mlflow/registered-models/create failed with error code 403 != 200. Response body: ''
+2026-08-07 14:22:27,562 -153 - root - INFO - Falling back to logging the model without registry registration.
+2026-08-07 14:22:34,220 -37 - root - INFO - Object saved to artifacts\model.pkl

@@ -6,3 +6,6 @@ dotenv
 seaborn
 xgboost
 catboost
+mlflow
+flask
+gunicorn

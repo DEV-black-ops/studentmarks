@@ -1,0 +1,22 @@
+2026-08-08 12:22:10,813 -10 - root - INFO - Starting the ML project setup...
+2026-08-08 12:22:10,813 -40 - root - INFO - Starting data ingestion process.
+2026-08-08 12:22:10,813 -19 - root - INFO - Loading data from D:/Project/MLOPS/notebook/StudentsPerformance.csv
+2026-08-08 12:22:10,855 -22 - root - INFO - Data loaded successfully
+2026-08-08 12:22:10,855 -43 - root - INFO - Data read successfully.
+2026-08-08 12:22:10,863 -48 - root - INFO - Raw data saved at artifacts\raw.csv
+2026-08-08 12:22:10,900 -55 - root - INFO - Training data saved at artifacts\train.csv
+2026-08-08 12:22:10,900 -56 - root - INFO - Testing data saved at artifacts\test.csv
+2026-08-08 12:22:10,900 -57 - root - INFO - Data ingestion process completed successfully.
+2026-08-08 12:22:10,966 -75 - root - INFO - Train and test data read successfully.
+2026-08-08 12:22:10,966 -55 - root - INFO - Numerical and categorical pipelines created successfully.
+2026-08-08 12:22:10,969 -56 - root - INFO - Numerical columns: ['writing score', 'reading score']
+2026-08-08 12:22:10,969 -57 - root - INFO - Categorical columns: ['gender', 'race/ethnicity', 'parental level of education', 'lunch', 'test preparation course']
+2026-08-08 12:22:10,974 -91 - root - INFO - Applying preprocessing object on training and testing datasets.
+2026-08-08 12:22:11,140 -37 - root - INFO - Object saved to artifacts\preprocessor.pkl
+2026-08-08 12:22:11,148 -106 - root - INFO - Preprocessor object saved successfully.
+2026-08-08 12:22:11,149 -48 - root - INFO - initating train test split
+2026-08-08 12:22:11,150 -101 - root - INFO - traning all the models
+2026-08-08 12:23:07,600 -137 - root - INFO - MLflow tracking and registry URI set to https://dagshub.com/DEV-black-ops/studentmarks.mlflow
+2026-08-08 12:23:07,602 -145 - root - INFO - MLflow Dagshub token set from DAGSHUB_TOKEN environment variable
+2026-08-08 12:23:51,631 -176 - root - INFO - Model logged and registered as 'Linear Regression' in remote registry
+2026-08-08 12:23:52,606 -37 - root - INFO - Object saved to artifacts\model.pkl
